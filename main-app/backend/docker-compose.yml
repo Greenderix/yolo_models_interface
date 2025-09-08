@@ -1,0 +1,25 @@
+version: '3.9'
+networks:
+  dispatcher_net:
+    external: true
+
+services:
+  taxifleet:
+    build:
+      context: ./taxifleet-management
+    container_name: taxifleet_api
+    env_file:
+      - ./taxifleet-management/.env
+    ports:
+      - "8001:8001"     # или 8001:8000 если внутри слушает 8000
+    networks: [dispatcher_net]
+
+  violations:
+    build:
+      context: ./violations
+    container_name: violations_api
+    env_file:
+      - ./violations/.env
+    ports:
+      - "8002:8000"
+    networks: [dispatcher_net]

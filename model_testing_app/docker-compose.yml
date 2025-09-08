@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  backend:
+    build: backend
+    container_name: backend-model
+    ports:
+      - "8003:8003"
+    environment:
+      - MODELS=driver=/models/driver_yolov8n.pt;cabin=/models/cabin_yolov8n.pt
+      - CORS=http://localhost:5174
+      - DEVICE=cpu
+      - VIOLATIONS_URL=http://localhost:8003/violations/
+    volumes:
+      - ./backend/app/models:/models:ro
+
+  frontend:
+    build:
+      context: frontend
+      args:
+        VITE_API_BASE: "http://localhost:8003"
+    container_name: frontend-model
+    ports:
+      - "5174:80"

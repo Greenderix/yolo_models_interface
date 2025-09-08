@@ -1,0 +1,8 @@
+services:
+  frontend:
+    build:
+      context: .          # <- текущая папка с Dockerfile
+    container_name: dispatcher_frontend
+    ports:
+      - "5173:80"         # откроется на http://localhost:5173
+    restart: unless-stopped

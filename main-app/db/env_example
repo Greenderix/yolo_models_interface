@@ -1,0 +1,3 @@
+POSTGRES_USER=dispatcher
+POSTGRES_PASSWORD=secret123
+POSTGRES_DB=dispatcher_db
