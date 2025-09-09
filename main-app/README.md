@@ -84,7 +84,7 @@ docker network create dispatcher_net || true
 
 ### 2) Infra: Postgres + MinIO
 ```bash
-docker compose -f ./main-app/infra/docker-compose.yml up -d --build
+docker compose -f ./main-app/db/docker-compose.yml up -d --build
 
 # (optional but recommended) add friendly aliases
 docker network connect --alias db dispatcher_net dispatcher_postgres   || true
@@ -174,5 +174,5 @@ Quick start:
 \`\`\`bash
 ./scripts/start_stack.sh
 \`\`\`
-After the stack is up, load test data from \`main-app/infra/init.sql\`.
+After the stack is up, load test data from \`main-app/db/init.sql\`.
 ```

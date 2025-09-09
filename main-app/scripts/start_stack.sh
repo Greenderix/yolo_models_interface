@@ -8,7 +8,7 @@ set -euo pipefail
 # ---------------------------------------------
 
 # --- Compose files (relative to repo root) ---
-INFRA_COMPOSE="./main-app/infra/docker-compose.yml"          # Postgres + MinIO
+INFRA_COMPOSE="./main-app/db/docker-compose.yml"          # Postgres + MinIO
 BACKEND_COMPOSE="./main-app/backend/docker-compose.yml"      # taxifleet + violations
 FRONTEND_COMPOSE="./main-app/frontend/frontend-compose.yml"  # Nginx (serves Vite static)
 
